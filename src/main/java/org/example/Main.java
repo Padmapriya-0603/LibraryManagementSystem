@@ -6,14 +6,14 @@ public class Main {
         Loan[] loans = new Loan[5];
         books[0] = new Book(1, "Harry Potter and The Philosopher's Stone", "J.K.Rowling", 750.00, BookStatus.AVAILABLE);
         books[1] = new Book(2, "Pride and Prejudice", "Jane Austen", 250.00, BookStatus.AVAILABLE);
-        books[2] = new Book(3, "Fantastic Beasts and Where to Find Them", "J.K.Rowling", 450.00, BookStatus.AVAILABLE);
+        books[2] = new Book(3, "Fantastic Beasts and Where to Find Them", "J.K.Rowling", 450.00, BookStatus.BORROWED);
         books[3] = new Book(4, "The Guide", "R.K.Narayanan", 300.00, BookStatus.AVAILABLE);
-        books[4] = new Book(5, "War and Peace", "Leo Tolstoy", 1050.00, BookStatus.AVAILABLE);
+        books[4] = new Book(5, "War and Peace", "Leo Tolstoy", 1050.00, BookStatus.RESERVED);
         books[5] = new Book(6, "The Alchemist", "Paulo Coelho", 1985.00, BookStatus.AVAILABLE);
         books[6] = new Book(7, "Hamlet", "William Shakespeare", 1200.00, BookStatus.AVAILABLE);
-        books[7] = new Book(8, "The Blue Umbrella ", "Ruskin Bond", 800.50, BookStatus.AVAILABLE);
+        books[7] = new Book(8, "The Blue Umbrella ", "Ruskin Bond", 800.50, BookStatus.BORROWED);
         books[8] = new Book(9, "Wonder", "R.J.Palacio", 560.00, BookStatus.AVAILABLE);
-        books[9] = new Book(10, "The Wild Robot", "Peter Brown", 400.00, BookStatus.AVAILABLE);
+        books[9] = new Book(10, "The Wild Robot", "Peter Brown", 400.00, BookStatus.RESERVED);
         members[0] = new Member(1, "Hannah");
         members[1] = new Member(2, "David");
         members[2] = new Member(3, "Leoni");
@@ -24,9 +24,9 @@ public class Main {
         loans[2] = new Loan(books[7], members[1]);
         loans[3] = new Loan(books[9], members[4]);
         loans[4] = new Loan(books[5], members[2]);
-        System.out.printf("%-5s %-50s %-30s %-10s%n", "Id", "Book Name", "Author", "Price");
+        System.out.printf("%-5s %-50s %-30s %-10s %-10s%n", "Id", "Book Name", "Author", "Price","Status");
         for (int i = 0; i < 10; i++) {
-            System.out.printf("%-5d %-50s %-30s %-10.2f%n", books[i].Id(), books[i].Title(), books[i].Author(), books[i].Price());
+            System.out.printf("%-5d %-50s %-30s %-10.2f %-10s%n", books[i].Id(), books[i].Title(), books[i].Author(), books[i].Price(),books[i].Status());
         }
         System.out.printf("%-5s %-20s%n", "Member Id", "Name");
         for (int i = 0; i < 5; i++) {
