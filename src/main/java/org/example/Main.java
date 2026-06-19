@@ -2,19 +2,9 @@ package org.example;
 import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Book> books = FileRepository.loadBooks();
         ArrayList<Member> members = new ArrayList<>();
         ArrayList<Loan> loans = new ArrayList<>();
-        books.add(new Book(1, "Harry Potter and The Philosopher's Stone", 1997,"J.K.Rowling", 750.00, BookStatus.AVAILABLE));
-        books.add(new Book(2, "Pride and Prejudice",1813, "Jane Austen", 250.00, BookStatus.AVAILABLE));
-        books.add(new Book(3, "Fantastic Beasts and Where to Find Them",2001, "J.K.Rowling", 450.00, BookStatus.AVAILABLE));
-        books.add(new Book(4, "The Guide",1958, "R.K.Narayanan", 300.00, BookStatus.AVAILABLE));
-        books.add(new Book(5, "War and Peace",1869, "Leo Tolstoy", 1050.00, BookStatus.AVAILABLE));
-        books.add(new Book(6, "The Alchemist",1988, "Paulo Coelho", 1985.00, BookStatus.AVAILABLE));
-        books.add(new Book(7, "Hamlet",1603, "William Shakespeare", 1200.00, BookStatus.AVAILABLE));
-        books.add(new Book(8, "The Blue Umbrella ",1980, "Ruskin Bond", 800.50, BookStatus.AVAILABLE));
-        books.add(new Book(9, "Wonder",2012, "R.J.Palacio", 560.00, BookStatus.AVAILABLE));
-        books.add(new Book(10, "The Wild Robot",2016, "Peter Brown", 400.00, BookStatus.AVAILABLE));
         BookService.displayBooks(books);
         members.add(new Member(1, "Hannah"));
         members.add(new Member(2, "David"));
@@ -56,5 +46,6 @@ public class Main {
         } catch(MemberNotFoundException e) {
             System.out.println(e.getMessage());
         }
+        FileRepository.saveBooks(books);
     }
 }
