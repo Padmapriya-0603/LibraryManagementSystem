@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class MemberService {
     public static void displayMembers(ArrayList<Member> members){
         System.out.println("\nMember Details\n");
-        System.out.printf("%-5s %-20s%n", "Member Id", "Name");
+        System.out.printf("%-5s %-20s%n","Member Id","Name");
         for(Member member:members) {
             System.out.printf("%-5d %-20s%n", member.getMemberId(), member.getName());
         }

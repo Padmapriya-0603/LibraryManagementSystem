@@ -14,11 +14,20 @@ public class Main {
         MemberService.displayMembers(members);
         BookService.sortBooksByAuthorAndYear(books);
         try{
-        LoanService.borrowBook(loans,books.get(0), members.get(3));
-        LoanService.borrowBook(loans,books.get(3), members.get(0));
-        LoanService.borrowBook(loans,books.get(7), members.get(1));
-        LoanService.borrowBook(loans,books.get(9), members.get(4));
-        LoanService.borrowBook(loans,books.get(5), members.get(2));}
+            LoanService.borrowBook(loans, books.get(0), members.get(3));
+        }
+        catch(BookUnavailableException e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            LoanService.borrowBook(loans, books.get(3), members.get(0));
+        }
+        catch(BookUnavailableException e){
+            System.out.println(e.getMessage());
+        }
+        try{
+            LoanService.borrowBook(loans, books.get(7), members.get(1));
+        }
         catch(BookUnavailableException e){
             System.out.println(e.getMessage());
         }

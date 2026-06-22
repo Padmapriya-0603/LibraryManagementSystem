@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class LoanService {
     public static void displayLoans(ArrayList<Loan> loans) {
         System.out.println("\nLoan Details");
-        System.out.printf("%-5s %-20s %-50s %-20s %-20s", "Member Id", "Name", "Book Name", "Issue Date", "Due Date");
+        System.out.printf("%-5s %-20s %-50s %-20s %-20s%n","Member Id","Name","Book Name","Issue Date","Due Date");
         for (Loan loan : loans) {
             System.out.printf("%-10d %-20s %-50s %-20s %-20s%n", loan.getMemberId(), loan.getMember().getName(), loan.getBook().getTitle(), loan.getIssueDate(), loan.getDueDate());
         }
@@ -17,11 +17,11 @@ public class LoanService {
             System.out.println(member.getName() + " borrowed " + book.getTitle());
         }
     public static void returnBook(ArrayList<Loan> loans,Book book){
-        for(Loan loan:loans){
-            if(loan.getBook().getId()== book.getId()){
-                loans.remove(loan);
+        for(int i=0;i<loans.size();i++){
+            if(loans.get(i).getBook().getId()==book.getId()){
+                loans.remove(i);
                 book.setStatus(BookStatus.AVAILABLE);
-                System.out.println(book.getTitle()+"returned successfully");
+                System.out.println(book.getTitle()+" returned successfully");
                 break;
             }
         }

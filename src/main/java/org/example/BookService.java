@@ -4,7 +4,7 @@ import java.util.Comparator;
 public class BookService {
     public static void displayBooks(ArrayList<Book> books) {
         System.out.println("\nBook Details\n");
-        System.out.printf("%-5s %-50s %-30s %-10s %-10s%n", "Id", "Book Name", "Author", "Price","Status");
+        System.out.printf("%-5s %-50s %-10s %-30s %-10s %-10s%n", "Id","Book Name","Year", "Author", "Price","Status");
         for(Book book:books) {
             System.out.printf("%-5d %-50s %-10s %-30s %-10.2f %-10s%n", book.getId(), book.getTitle(),book.getYear(), book.getAuthor(), book.getPrice(),book.getStatus());
         }
